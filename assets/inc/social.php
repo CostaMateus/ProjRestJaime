@@ -5,7 +5,7 @@
 				<br><br>
 				<h4 class="text-center" >Acompanhe-nos nas redes sociais!</h4>
 				<div class="row clearfix text-center">
-					<!--
+					<!-- desnecessario 
 					<div class="soc col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<h3 class="hidden-xs"></h3>
 						<a class="text-center" href="" target="_blank" >

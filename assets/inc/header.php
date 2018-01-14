@@ -17,7 +17,7 @@
 		<title>Estavão Restaurante e Lanchonete</title>
 
 		<!-- FavIcon -->
-		<link rel="shortcut icon" type="image/x-icon" href="<?=BASEURL?>assest<?=B?>boot<?=B?>images<?=B?>logos<?=B?>icone.svg"> 
+		<link rel="shortcut icon" type="image/x-icon" href="<?=BASEURL?>assest/images/logos/icone.svg"> 
 
 		<!-- CSS Bootstrap e personalizado -->
 		<link href="<?=PATH_BOOT?>css/normalize.css"    rel="stylesheet" type="text/css" />

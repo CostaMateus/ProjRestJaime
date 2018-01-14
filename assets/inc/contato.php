@@ -24,7 +24,6 @@
 								<fieldset>
 									<div class="form-group">
 										<input type="text" class="form-control" id="inputName" name="nome" placeholder="Seu nome" required >
-										<!-- pattern="[a-zA-Z0-9]+ -->
 									</div>
 									<div class="form-group">
 										<input type="email" class="form-control" id="inputEmail_c2" name="email" placeholder="Seu e-mail" required >
@@ -36,7 +35,6 @@
 									</div>
 									<div class="form-group">
 										<textarea class="form-control" rows="3" id="inputTextArea_c2" name="msg" placeholder="Mensagem que deseja nos enviar." required ></textarea>
-										<!--<span class="help-block" style="color:#FFF;">Escreva acima a mensagem que deseja nos enviar.</span>-->
 									</div>
 									<div class="form-group">
 										<div class="row">

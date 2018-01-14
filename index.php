@@ -1,8 +1,15 @@
 <?php 
 	require_once 'config.php'; 
+	require_once FUNC_API; 
+	require_once EMAIL_API; 
 	
 	$objFunc = new Functions(); 
-
+	$objFuncE = new FunctionEmail(); 
+	
+	if(isset($_POST['btnSendEmail'])) {
+		$objFuncE->sendEmail($_POST);
+	}
+	
 	include(HEADER_TEMPLATE); 
 ?>
 		<!-- inicio home section -->
@@ -11,7 +18,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<br><br><br><br>
-						<img id="logo1" src="<?=PATH_BOOT?>images/logos/Logo.svg" style="width:60%;" title="Estevão Restaurante e Lanchonete" alt="Estevão Restaurante e Lanchonete" />
+						<img id="logo1" src="<?php echo BASEURL; ?>assets/imgs/logos/Logo.svg" style="width:60%;" title="Estevão Restaurante e Lanchonete" alt="Estevão Restaurante e Lanchonete" />
 						<br><br><br><br>
 						<br><br><br><br>
 						<h5 style="color:#FFF!important;">Segunda a sexta: 06h às 23h</h5>
@@ -35,7 +42,7 @@
 						
 						<!-- rever disposiçao das imgs -->
 						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-							<img id="logo1" src="<?=PATH_BOOT?>images/DSCN1919.jpg" class="img-responsive img-rounded" title="Estevão Restaurante e Lanchonete" alt="Estevão" />
+							<img id="logo1" src="<?php echo BASEURL; ?>assets/imgs/DSCN1919.jpg" class="img-responsive img-rounded" title="Estevão Restaurante e Lanchonete" alt="Estevão" />
 						</div>
 						<p class="text-justify">
 							<--- Foto do Self-Service 
@@ -46,6 +53,21 @@
 							Detraxit consequat et quo num tendi nada. Atirei o pau no gatis, per gatis num morreus. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!
 							Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. in elementis mé pra quem é amistosis quis leo. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 						</p>
+						
+						<!-- desnecessario - rever disposiçao das imgs 
+						<div class="col-lg-4 col-lg-offset-8 col-md-2 col-sm-2 col-xs-6">
+							<img id="logo2" src="<?php echo BASEURL; ?>assets/imgs/exemplo.jpg" class="img-responsive img-rounded" title="Estevão Restaurante e Lanchonete" alt="Estevão" />
+						</div>
+						<p class="text-right">
+							Foto da Lanchonete (ex) 
+						</p>
+						<p class="text-justify">
+							Paisis, filhis, espiritis santis. Quem manda na minha terra sou Euzis! Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Casamentiss faiz malandris se pirulitá.
+							Mé faiz elementum girarzis, nisi eros vermeio. Quem num gosta di mé, boa gente num é. A ordem dos tratores não altera o pão duris Si num tem leite então bota uma pinga aí cumpadi!  
+							Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mais vale um bebadis conhecidiss, que um alcoolatra anonimiss. Ta deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.”
+							
+							Detraxit consequat et quo num tendi nada. Atirei o pau no gatis, per gatis num morreus. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!
+						</p>-->
 					</div>
 				</div>
 				<br><br>
@@ -65,52 +87,48 @@
 				<div class="row">
 					<?php 
 						$i = 1;
-						echo "Fora do if";
-						if ($re = $objFunc->getLastFourFeatured()) {
-							echo "Dentro do if";
-							foreach($re as $r1) { 
-								if ($i < 3) { ?> 
-									<div id="<?=$r1['id'];?>" class="col-md-6">
-										<div class="row">
-											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-												<a class="example-image-link" href="<?=PATH_BOOT?>images/featured/<?=$r1['image'];?>" data-lightbox="example-set" data-title="<?=$r1['name'];?>">
-													<img src="<?=PATH_BOOT?>images/featured/<?=$r1['image'];?>" 
-														class="img-responsive img-rounded" 
-														title="<?=$r1['name'];?>" 
-														alt="<?=$r1['name'];?>" />
-												</a>
-											</div>
-											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-												<h5 class="text-left"><?=$r1['name'];?></h5>
-												<p class="text-left"><?=$r1['description'];?></p>
-											</div>
+						foreach($objFunc->qSelect4Destaques() as $result1) { 
+							if ($i < 3) { ?> 
+								<div id="<?php echo $result1['id'];?>" class="col-md-6">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<a class="example-image-link" href="<?php echo BASEURL; ?>assets/imgs/destaques/<?php echo $result1['image'];?>" data-lightbox="example-set" data-title="<?php echo ($result1['name']);?>">
+												<img src="<?php echo BASEURL; ?>assets/imgs/destaques/<?php echo $result1['image'];?>" 
+													class="img-responsive img-rounded" 
+													title="<?php echo ($result1['name']);?>" 
+													alt="<?php echo ($result1['name']);?>" />
+											</a>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<h5 class="text-left"><?php echo ($result1['name']);?></h5>
+											<p class="text-left"><?php echo ($result1['description']);?></p>
 										</div>
 									</div>
-					<?php		} else { 
-									if ($i == 3) { ?> 
+								</div>
+					<?php	} else { 
+								if ($i == 3) { ?> 
 				</div>
 				<br>
 				<div class="row">
-					<?php 			} ?>
-									<div id="<?=$r1['id'];?>" class="col-md-6">
-										<div class="row">
-											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-												<h5 class="text-left"><?=$r1['name'];?></h5>
-												<p class="text-left"><?=$r1['description'];?></p>
-											</div>
-											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-												<a class="example-image-link" href="<?=PATH_BOOT?>images/featured/<?=$r1['image'];?>" data-lightbox="example-set" data-title="<?=$r1['name'];?>">
-													<img src="<?=PATH_BOOT?>images/featured/<?=$r1['image'];?>" 
-														class="img-responsive img-rounded" 
-														title="<?=$r1['name'];?>" 
-														alt="<?=$r1['name'];?>" />
-												</a>
-											</div>
+					<?php 		} ?>
+								<div id="<?php echo $result1['id'];?>" class="col-md-6">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<h5 class="text-right"><?php echo ($result1['name']);?></h5>
+											<p class="text-right"><?php echo ($result1['description']);?></p>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<a class="example-image-link" href="<?php echo BASEURL; ?>assets/imgs/destaques/<?php echo $result1['image'];?>" data-lightbox="example-set" data-title="<?php echo ($result1['name']);?>">
+												<img src="<?php echo BASEURL; ?>assets/imgs/destaques/<?php echo $result1['image'];?>" 
+													class="img-responsive img-rounded" 
+													title="<?php echo ($result1['name']);?>" 
+													alt="<?php echo ($result1['name']);?>" />
+											</a>
 										</div>
 									</div>
-					<?php 		}
-								$i++;
-							}
+								</div>
+					<?php 	}
+							$i++;
 						} ?>
 				</div>
 				<br><br>
@@ -124,8 +142,8 @@
 		<section>
 			<!-- inicio modal promos -->
 			<?php 
-				$r2 = $objFunc->getActivePromotion();
-				if ($r2 != null) { ?>
+				$result2 = $objFunc->getActivePromo();
+				if ($result2 != null) { ?>
 					<script>$(document).ready(function() {$('#promos').modal('show');});</script>
 					<div id="promos" class="modal fade promos" tabindex="-1" role="dialog" aria-labelledby="mod_contato">
 						<div class="modal-dialog modal-lg" role="document">
@@ -133,18 +151,18 @@
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h5 class="modal-title text-center" id="mod_contato">Promoção da semana</h5>
-									<h4 class="text-center"><?=$r2['name'];?></h4>
+									<h4 class="text-center"><?php echo ($result2['name']);?></h4>
 								</div>
 								<div class="modal-body table-responsive">
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
-										<img src="<?=PATH_BOOT?>images/promotion/<?=$r2['image'];?>" 
+										<img src="<?php echo BASEURL; ?>assets/imgs/promos/<?php echo ($result2['image']);?>" 
 											class="img-responsive img-rounded" 
-											title="<?=$r2['name'];?>" 
-											alt="<?=$r2['name'];?>" />
+											title="<?php echo ($result2['name']);?>" 
+											alt="<?php echo ($result2['name']);?>" />
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
-										<p><?=$r2['description'];?></p>
-										<h5><?=$r2['price'];?></h5>
+										<p><?php echo ($result2['description']);?></p>
+										<h5><?php echo ($result2['price']);?></h5>
 									</div>
 								</div>
 							</div>

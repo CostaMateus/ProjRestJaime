@@ -2,6 +2,11 @@
 	require_once 'Connection.class.php';
 	require_once 'Functions.class.php';
 	
+	/*****************************************************/
+	/** 												**/
+	/** Toda essa classe será refatorada hahah tristeza **/
+	/** 												**/
+	/*****************************************************/
 	//Classe de usuário 
 	class User {
 		

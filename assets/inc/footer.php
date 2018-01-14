@@ -18,6 +18,7 @@
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script>
+			<!-- quase certeza q eh desnecessario -->
 			$(function() {
 				url = document.location.pathname.substr(document.location.pathname.lastIndexOf("/") + 1); // obter nome da página atual ex: teste.html
 				el = document.querySelector("[href*='/" + url + "']"); // procura o link que contenha a url
