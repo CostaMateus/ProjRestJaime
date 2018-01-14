@@ -1,0 +1,28 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+# RewriteBase /
+# RewriteEngine on
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?lolzimhj.pe.hu/ [NC]
+# RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}\.html -f
+# RewriteRule ^(.*)$ $1.html
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}\.php -f
+# RewriteRule ^(.*)$ $1.php
+
+# <files ~ "^.*\.([Hh][Tt][Aa])">
+# order allow,deny
+# deny from all
+# satisfy all
+# </files>
+
+# <FilesMatch ".(htm|html|css|js|php)$">
+# AddDefaultCharset UTF-8
+# </FilesMatch>
+
+# DirectoryIndex index.php
+
+# Options -Indexes
