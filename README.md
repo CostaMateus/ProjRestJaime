@@ -40,6 +40,6 @@ function(nova):
 
 - Criar as DAOs.
 
-- Refatorar as funções para se adequerem as DAOs.
+- Refatorar as funções para se adequarem as DAOs.
 
 #### Com ctz estou esquecendo de algo. Dps acrescento... 
