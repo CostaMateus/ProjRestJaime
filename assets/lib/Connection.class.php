@@ -1,5 +1,4 @@
 <?php 
-
 	//Classe de conexao
 	class Connection {
 		
