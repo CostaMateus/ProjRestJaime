@@ -15,11 +15,6 @@
 			$this->DB_USER = "root";
 			$this->DB_PASS = "";
 			$this->DB_NAME = "rlanches";
-			
-			// $this->DB_HOST = "mysql.hostinger.com.br";
-			// $this->DB_USER = "u518220322_jaime";
-			// $this->DB_PASS = "cPA32nHebJ9S";
-			// $this->DB_NAME = "u518220322_site";
 		}
 		
 		//Metodo para conectar
@@ -35,5 +30,4 @@
 			}
 		}
 	}
-	
 ?>

@@ -17,7 +17,7 @@
 		<title>Estavão Restaurante e Lanchonete</title>
 
 		<!-- FavIcon -->
-		<link rel="shortcut icon" type="image/x-icon" href="<?=BASEURL?>assest/images/logos/icone.svg"> 
+		<link rel="shortcut icon" type="image/x-icon" href="<?=PATH_BOOT?>images/logos/icone.svg"> 
 
 		<!-- CSS Bootstrap e personalizado -->
 		<link href="<?=PATH_BOOT?>css/normalize.css"    rel="stylesheet" type="text/css" />
@@ -71,7 +71,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a href="" rel="next" target="_top" class="brand-logo default-hidden">
-						<img class="" height="40" alt="Estevão Lanches" src="<?php echo BASEURL; ?>assets/boot/images/logos/LogoBranco.svg">
+						<img class="" height="40" alt="Estevão Lanches" src="<?=PATH_BOOT?>images/logos/LogoBranco.svg">
 					</a>
 				</div>
 				<div id="navmain" class="collapse navbar-collapse" aria-expanded="false" role="navigation">

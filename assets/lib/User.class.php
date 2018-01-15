@@ -42,17 +42,17 @@
 					$this->id = $this->objFunc->base64($id, 2);
 					$stmt = $this->conn->open_db()->prepare("SELECT * FROM `user` WHERE `id` = :idU;");
 					$stmt->bindParam(":idU", $this->id, PDO::PARAM_INT);
-					return (($stmt->execute()) ? $stmt->fetch() : false);
+					return (($stmt->execute()) ? $stmt->fetch(PDO::FETCH_ASSOC) : false);
 					
 				} elseif ($login) {
 					$this->login = $login;
 					$stmt = $this->conn->open_db()->prepare("SELECT * FROM `user` WHERE `login` = :login;");
 					$stmt->bindParam(":login", $this->login, PDO::PARAM_STR);
-					return ((($stmt->execute()) && ($stmt->rowCount() != 0)) ? $stmt->fetch() : false);
+					return ((($stmt->execute()) && ($stmt->rowCount() != 0)) ? $stmt->fetch(PDO::FETCH_ASSOC) : false);
 
 				} else {
 					$stmt = $this->conn->open_db()->prepare("SELECT * FROM `user`;");
-					return (($stmt->execute()) ? $stmt->fetchAll() : false);
+					return (($stmt->execute()) ? $stmt->fetchAll(PDO::FETCH_ASSOC) : false);
 				}
 			} catch (PDOException $e) {
 				return "Erro: " . $e->getMessage(); 
@@ -80,7 +80,7 @@
 						$stmt->bindParam(":login", $this->login, PDO::PARAM_STR);
 						
 						if ($stmt->execute() && $stmt->rowCount() > 0) {
-							$r = $stmt->fetch();
+							$r = $stmt->fetch(PDO::FETCH_ASSOC);
 							return ($r['id'] == $_SESSION['id'] ? false : true);
 						}
 					} catch (PDOException $e) {

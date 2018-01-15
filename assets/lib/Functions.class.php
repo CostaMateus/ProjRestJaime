@@ -60,7 +60,7 @@
 			return $result;
 		}
 		
-		// Faz uma parada ae
+		// Nome autoexplicativo
 		function echoActiveClassIfRequestMatches($value) {
 			$current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 			if (strpos($current_file_name, $value) !== false) {
@@ -98,7 +98,7 @@
 			try {
 				$stmt = $this->conn->open_db()->prepare("SELECT * FROM :table;");
 				$stmt->bindParam(":table", $table, PDO::PARAM_STR);
-				return (($stmt->execute()) ? $stmt->fetchAll() : false);
+				return (($stmt->execute()) ? $stmt->fetchAll(PDO::FETCH_ASSOC) : false);
 			} catch (PDOException $e) {
 				return "Erro: " . $e->getMessage();
 			}
@@ -114,7 +114,7 @@
 				$stmt = $this->conn->open_db()->prepare("SELECT * FROM :table WHERE `id` = :id;");
 				$stmt->bindParam(":table", $table, PDO::PARAM_STR);
 				$stmt->bindParam(":id", $id, PDO::PARAM_INT);
-				return (($stmt->execute()) ? $stmt->fetch() : false);
+				return (($stmt->execute()) ? $stmt->fetch(PDO::FETCH_ASSOC) : false);
 			} catch (Exception $e) {
 				return "Erro: " . $e->getMessage();
 			}
@@ -174,7 +174,7 @@
 			try {
 				$stmt = $this->conn->open_db()->prepare("SELECT * FROM `promotion` WHERE `active` = 1 ORDER BY id DESC;");
 				//$stmt->bindParam(":active", $active, PDO::PARAM_INT);
-				return (($stmt->execute()) ? $stmt->fetch() : false);
+				return (($stmt->execute()) ? $stmt->fetch(PDO::FETCH_ASSOC) : false);
 			} catch (PDOException $e) {
 				return "Erro: " . $e->getMessage();
 			}
@@ -186,9 +186,9 @@
 		function getLastFourFeatured () {
 			$active = 1; 
 			try {
-				$stmt = $this->conn->open_db()->prepare("SELECT * FROM `featured` WHERE `active` = :active LIMIT 4 ORDER BY id DESC;");
+				$stmt = $this->conn->open_db()->prepare("SELECT * FROM `featured` WHERE `active` = :active ORDER BY id DESC LIMIT 4;");
 				$stmt->bindParam(":active", $active, PDO::PARAM_INT);
-				return (($stmt->execute()) ? $stmt->fetchAll() : false);
+				return (($stmt->execute()) ? $stmt->fetchAll(PDO::FETCH_ASSOC) : false);
 			} catch (PDOException $e) {
 				return "Erro: " . $e->getMessage();
 			}
