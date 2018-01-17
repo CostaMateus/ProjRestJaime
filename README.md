@@ -1,3 +1,4 @@
+
 # ProjRestJaime
 
 Agr tem... haha
@@ -21,10 +22,8 @@ function(antiga):
 
 function(nova):
 ```php
-	if ($re = $objFunc->getLastFourFeatured()) {
-		foreach($re as $r1) { 
-			//cod html
-		}
+	foreach ($objFunc->getLastFourFeatured() as $r1) {
+		//cod html
 	}
 ```
 
@@ -39,4 +38,8 @@ function(nova):
 
 - Retirar comentários desnecessários. kkkk 
 
-### Com ctz estou esquecendo de algo. Dps acrescento... 
+- Criar as DAOs.
+
+- Refatorar as funções para se adequarem as DAOs.
+
+#### Com ctz estou esquecendo de algo. Dps acrescento... 
