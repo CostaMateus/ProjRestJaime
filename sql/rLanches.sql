@@ -89,9 +89,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `login`, `pass`, `dateCa`, `dateUp`, `active`) VALUES
-(1, 'Mateus', 'Mateus', '$2y$10$ovc0sxTsr52icxqOxxmlj.DOb9F.aLuGTKTUL7P6sW8UdrSRMEb2q', '2017-09-29 04:53:32', '2017-11-14 12:53:12', 1),
-(4, 'Jaime', 'Jaime', '$2y$10$oUMD7CsMSUXqqHniyl93Q.bVSW3f.fHvJtGdqR8uYIneHQ1YWxMXy', '2017-09-29 21:47:33', '2017-11-14 12:49:45', 1),
-(5, 'Filipe', 'Filipe', '$2y$10$kyTt1n7FSC0pG71CtakL8u1BjrAMiXR/StMnVhOrTCBajeNj.ZvoC', '2017-11-14 12:57:01', '2017-11-14 12:57:01', 1);
+(1, 'Mateus Lopes', 'Mateus', '$2y$10$ovc0sxTsr52icxqOxxmlj.DOb9F.aLuGTKTUL7P6sW8UdrSRMEb2q', '2017-09-29 04:53:32', '2017-11-14 12:53:12', 1),
+(2, 'Jaime Nobrega', 'Jaime', '$2y$10$oUMD7CsMSUXqqHniyl93Q.bVSW3f.fHvJtGdqR8uYIneHQ1YWxMXy', '2017-09-29 21:47:33', '2017-11-14 12:49:45', 1),
+(3, 'Filipe Lucas', 'Filipe', '$2y$10$kyTt1n7FSC0pG71CtakL8u1BjrAMiXR/StMnVhOrTCBajeNj.ZvoC', '2017-11-14 12:57:01', '2017-11-14 12:57:01', 1);
 
 --
 -- Indexes for dumped tables

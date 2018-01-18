@@ -19,7 +19,7 @@
 	
 	//POST para editar dados da conta (nome, login)
 	if (isset($_POST['btnSaveEdition'])) {
-		if (!$objUser->qSelectLogins($_POST['login'], 2)) {
+		if ($objUser->qSelectLogins($_POST['login'], 2)) {
 			if ($objUser->qUpdate($_POST, 2)) {
 				if ($_POST['login'] != $_SESSION['loginUser']) {
 					$_SESSION['logado'] = false;

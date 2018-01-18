@@ -66,6 +66,7 @@
 	spl_autoload_register(function($className){
 		if (file_exists(PATH_LIB . $className . ".class.php")){
 			require_once(PATH_LIB . $className . ".class.php");
+			// echo PATH_LIB . $className . ".class.php <br>";
 		}
 	});
 ?>

@@ -30,13 +30,13 @@
 		public function currentDate($type) {
 			switch($type) {
 				case 1: 
-					$result = ((new DateTime())->setTimeZone(new DateTimeZone("America/Sao_Paulo")))->format("Y-m-d");; 
+					$result = ((new DateTime())->setTimeZone(new DateTimeZone("America/Sao_Paulo")))->format("Y-m-d");
 					break;
 				case 2: 
-					$result = ((new DateTime())->setTimeZone(new DateTimeZone("America/Sao_Paulo")))->format("Y-m-d H:i:s");;
+					$result = ((new DateTime())->setTimeZone(new DateTimeZone("America/Sao_Paulo")))->format("Y-m-d H:i:s");
 					break;
 				case 3: 
-					$result = ((new DateTime())->setTimeZone(new DateTimeZone("America/Sao_Paulo")))->format("d/m/Y");;
+					$result = ((new DateTime())->setTimeZone(new DateTimeZone("America/Sao_Paulo")))->format("d/m/Y");
 					break;
 			}
 			return $result;
