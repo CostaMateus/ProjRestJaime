@@ -31,6 +31,7 @@
 	/** Constantes de classes não usadas mais.           **/
 	/** Substituidas pela função spl_autoload_register() **/
 	/** Retirar redundâncias no php/html. 				 **/
+	/** Apagar na proxima versão 						 **/
 	/** 												 **/
 	/******************************************************/
 	/** caminho do arquivo Connection.class 			 **/ 

@@ -1,5 +1,5 @@
 <?php
-	require_once("Connection.class.php");
+	require_once ("../../config.php");
 
 	class Sql extends PDO {
 

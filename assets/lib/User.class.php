@@ -135,7 +135,7 @@
 			/*
 				Tratar dados antes de invocar a função
 				De preferência no formulário 
-				atrtolower(login)
+				strtolower(login)
 			*/
 			$this->setDateCa(self::getCurrentDate());
 			$this->setDateUp($this->getDateCa());
@@ -289,6 +289,7 @@
 		}
 		/** fim funcoes novas - usando DAO **/
 
+		// Apagar linhas abaixo na próxima versão 
 		// Retorna usuário se receber id ou login, senão, retorna todos
 		/*
 		public function qSelect($id = NULL, $login = NULL) { 
