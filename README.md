@@ -1,7 +1,6 @@
 
 # ProjRestJaime
 
-Agr tem... haha
 
 O q tah online: v0.9 [http://lolzimhj.pe.hu/](http://lolzimhj.pe.hu/)
 
@@ -11,22 +10,6 @@ O q tah online: v0.9 [http://lolzimhj.pe.hu/](http://lolzimhj.pe.hu/)
 
 
 - Atualizar todas as funções usadas, na index e no /admin.
-
-Ex, no index. 
-function(antiga): 
-```php
-	foreach($objFunc->qSelect4Destaques() as $result1) { 
-		//cod html
-	}
-```	
-
-function(nova):
-```php
-	foreach ($objFunc->getLastFourFeatured() as $r1) {
-		//cod html
-	}
-```
-
 
 - Atualizar link dos imports (css, imagens, scripts, links).
 
